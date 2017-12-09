@@ -17,7 +17,7 @@ public class HandlerMapping {
 	public HandlerMapping() {
 		mappings = new HashMap<String, Controller>();
 		mappings.put("/login.do", new LoginController());
-		mappings.put("/BoardList.do", new GetBoardListController());
+		mappings.put("/getBoardList.do", new GetBoardListController());
 		mappings.put("/getBoard.do", new GetBoardController());
 		mappings.put("/insertBoard.do", new InsertBoardController());
 		mappings.put("/updateBoard.do", new UpdateBoardController());
