@@ -13,7 +13,7 @@ import com.springbook.biz.common.JDBCUtil;
 
 // DAO(Data Access Objcet)
 // @Repository == @Component + 데이터베이스 연동
-@Repository("boardDao")
+@Repository("boardDAO")
 public class BoardDAO {
 	// JDBC 관련 변수
 	private Connection conn = null;
@@ -37,6 +37,7 @@ public class BoardDAO {
 			stmt.setString(1,  vo.getTitle());
 			stmt.setString(2,  vo.getWriter());
 			stmt.setString(3,  vo.getContent());
+			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -51,8 +52,9 @@ public class BoardDAO {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_UPDATE);
 			stmt.setString(1,  vo.getTitle());
-			stmt.setString(2,  vo.getWriter());
+			stmt.setString(2,  vo.getContent());
 			stmt.setInt(3,  vo.getSeq());
+			stmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
